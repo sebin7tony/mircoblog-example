@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>HI, {{ user.nickname }}</h1>
+{% for post in posts %}
+<div><p>{{ post.author.name }} says : <b>{{ post.body}}</b></p></div>
+{% endfor %}
+<form action="/index/taxout" method="post" name="tax" >
+
+	{{ form.hidden_tag() }}
+	<p> Enter start date {{ form.startdate }}
+	{% for error in form.errors.startdate %}
+			<span style="color : red;">{{ error }}</span>
+	{% endfor %}
+	Enter your end date {{ form.enddate }}
+	{% for error in form.errors.enddate %}
+		<span style="color : red;">{{ error }}</span>
+	{% endfor %}
+    </br>
+	Enter your salary : {{ form.salary }}
+	{% for error in form.errors.salary %}
+		<span style="color : red;">{{ error }}</span>
+	{% endfor %}
+	</p>
+	<p><input type="submit" value="Calculate"></p>
+</form>
+
+{% endblock%}

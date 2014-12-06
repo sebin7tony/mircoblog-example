@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1> Tax info </h1>
+<p>
+    Tax for the date from {{ formdata }} to {{ formdata[1] }} 
+</br>
+    Tax is to be payed in a month - {{ formdata[2] }}
+</p>
+{% endblock %}
